@@ -1,13 +1,22 @@
 // * @author fabian_esteban.lopez
 package datos;
 
-public class Vehiculo {
+import modelo.Base;
+
+public class Vehiculo extends Base {
 
     private String numeroPlaca;
-    
     private String marca;
-    
     private int modelo;
+
+    public Vehiculo() {
+    }
+
+    public Vehiculo(String numeroPlaca, String marca, int modelo) {
+        this.numeroPlaca = numeroPlaca;
+        this.marca = marca;
+        this.modelo = modelo;
+    }
 
     /**
      * Get the value of modelo
@@ -27,7 +36,6 @@ public class Vehiculo {
         this.modelo = modelo;
     }
 
-
     /**
      * Get the value of marca
      *
@@ -45,7 +53,6 @@ public class Vehiculo {
     public void setMarca(String marca) {
         this.marca = marca;
     }
-
 
     /**
      * Get the value of numeroPlaca
@@ -65,6 +72,18 @@ public class Vehiculo {
         this.numeroPlaca = numeroPlaca;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return numeroPlaca + ", " + marca + ", " + modelo;
+    }
+
+    @Override
+    /*  private String numeroPlaca;
+    private String marca;
+    private int modelo;*/
+
+    public Base copy() {
+        return new Vehiculo(numeroPlaca, marca, modelo);
+    }
+
 }
